@@ -19,14 +19,8 @@ def lambda_handler(event, context):
     
     event_first_seen = parsed_message.get('detail', {}).get('service', {}).get('eventFirstSeen', '')
     event_last_seen = parsed_message.get('detail', {}).get('service', {}).get('eventLastSeen', '')
-    
-    remote_ip = parsed_message.get('detail', {}).get('service', {}).get('action', {}).get('networkConnectionAction', {}).get('remoteIpDetails', {}).get('ipAddressV4', '')
-    instance_id = parsed_message.get('detail', {}).get('resource', {}).get('instanceDetails', {}).get('instanceId', '')
-
-
-    
+  
     description = parsed_message.get('detail', {}).get('description', '')
-    title = parsed_message.get('detail', {}).get('title', '')
     accountId = parsed_message.get('detail', {}).get('accountId', '')
     action = parsed_message.get('detail', {}).get('service', {}).get('action', {})
     
